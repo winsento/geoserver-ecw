@@ -19,11 +19,11 @@ RUN dpkg-divert --local --rename --add /sbin/initctl
 # Install packages
 RUN \
   apt-get -y update --fix-missing && \
-  apt-get -y install unzip gcc software-properties-common && \
+  apt-get -y install unzip build-essential software-properties-common && \
   echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
   add-apt-repository -y ppa:webupd8team/java && \
   apt-get -y update && \
-  apt-get install -y oracle-java8-installer gdal-bin libgdal-java && \
+  apt-get install -y oracle-java8-installer gdal-bin libgdal-dev libgdal-java && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf /var/cache/oracle-jdk8-installer && \
