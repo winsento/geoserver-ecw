@@ -97,15 +97,3 @@ RUN rm -rf $GEOSERVER_HOME/webapps/geoserver/WEB-INF/lib/jai_codec-1.1.3.jar && 
 # Expose GeoServer's default port
 EXPOSE 8080
 CMD ["/opt/geoserver/bin/startup.sh"]
-
-
-
-RUN apt-get update && apt-get -y install \
-    libgdal-dev \
-    build-essential \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-
-
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
